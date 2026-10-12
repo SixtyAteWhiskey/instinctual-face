@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111313">
+  <meta name="description" content="Design, share, and build watch faces for Garmin Instinct Connect IQ watches.">
+  <title>Instinctual Face — Watch face studio</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="/" aria-label="Instinctual Face home"><span class="brand-mark">i<span>f</span></span><span>INSTINCTUAL<span class="brand-light"> FACE</span><small>WATCH FACE STUDIO</small></span></a>
+    <div class="project-title"><span class="breadcrumb">Projects <span>/</span></span><input id="project-name" aria-label="Project name" maxlength="80" value="Summit" autocomplete="off"><span class="small-tag">DRAFT</span></div>
+    <div class="header-actions"><span id="save-status" class="save-status" role="status">Loading…</span><button class="button subtle" id="share-button">Share</button><button class="button subtle" id="projects-button">My faces</button><button class="button primary" id="export-button">Export face <span>↗</span></button></div>
+  </header>
+  <main class="studio">
+    <aside class="library-panel" aria-label="Design library">
+      <div class="panel-heading"><span>BUILD YOUR FACE</span><span class="mini-square">+</span></div>
+      <div class="tabs" role="tablist"><button class="tab active" id="elements-tab" role="tab" aria-selected="true" aria-controls="elements-panel">Elements</button><button class="tab" id="templates-tab" role="tab" aria-selected="false" aria-controls="templates-panel">Templates</button></div>
+      <div id="elements-panel" role="tabpanel"><p class="panel-hint">Drag onto your watch.<br>Or click to add an element.</p><label class="library-search"><span class="screen-reader-only">Search elements</span><input id="element-search" type="search" placeholder="Search elements…" autocomplete="off"></label><p id="library-count" class="library-count" aria-live="polite"></p><div id="element-library"></div></div>
+      <div id="templates-panel" role="tabpanel" hidden><p class="panel-hint">A starting point for your next adventure.</p><div id="template-library"></div><div class="share-tools"><button class="button" data-workflow="import-code">Use a share code</button><button class="text-button" data-workflow="share">Save / share this face ↗</button></div><h3 class="group-label">SHARED TEMPLATES</h3><div id="shared-template-library"></div><p class="unsupported-note">Original Instinct and original Instinct Solar cannot install Connect IQ faces.</p></div>
+      <div class="library-bottom"><div class="tiny-overline">MADE FOR THE OUTDOORS</div><p>Your watch. Your rhythm.<br>Your face.</p><button class="text-button" id="help-button">How it works <span>↗</span></button></div>
+    </aside>
+    <section class="editor-panel" aria-label="Watch face canvas">
+      <div class="canvas-toolbar"><div class="device-control"><span class="toolbar-label">DEVICE</span><select id="device-select" aria-label="Watch model"></select></div><div class="toolbar-buttons"><button class="icon-button" id="undo-button" title="Undo (Ctrl or Command Z)" aria-label="Undo"></button><button class="icon-button" id="redo-button" title="Redo (Ctrl or Command Shift Z)" aria-label="Redo"></button><span class="toolbar-divider"></span><button class="icon-button" id="grid-button" title="Toggle grid" aria-label="Toggle grid" aria-pressed="false"></button><button class="icon-button" id="snap-button" title="Snap to 4 pixel grid" aria-label="Snap to grid" aria-pressed="true"></button></div></div>
+      <div class="designer-options"><label><input id="safety-margin-toggle" type="checkbox" checked> Safety margin</label><span id="safety-status">Keeps layers inside visible pixels</span><button id="fit-face-button" class="text-button" title="Fit every layer inside the visible display">Fit face</button><button id="units-button" class="text-button" title="Choose temperature, distance, elevation, and other units">Units ↗</button></div>
+      <div class="canvas-area" id="canvas-area">
+        <div class="canvas-heading"><span class="status-dot"></span> THE DESIGN STUDIO <span class="canvas-heading-line"></span></div>
+        <div class="view-switch" role="group" aria-label="Canvas view"><button id="edit-view" class="active">Edit</button><button id="preview-view">Preview</button></div>
+        <div class="watch-stage" id="watch-stage">
+          <div class="watch-strap strap-top"></div><div class="watch-strap strap-bottom"></div>
+          <svg class="watch-hardware" viewBox="0 0 380 448" aria-hidden="true"><defs><linearGradient id="hardware-metal"><stop stop-color="#171d13"/><stop offset=".45" stop-color="#505a42"/><stop offset=".65" stop-color="#2d3822"/><stop offset="1" stop-color="#10180d"/></linearGradient></defs><g fill="url(#hardware-metal)" stroke="#0d150a" stroke-width="2"><rect x="9" y="119" width="19" height="38" rx="4" transform="rotate(-27 19 138)"/><rect x="-3" y="207" width="19" height="34" rx="4"/><rect x="9" y="291" width="19" height="38" rx="4" transform="rotate(27 19 310)"/><rect x="352" y="119" width="19" height="38" rx="4" transform="rotate(27 361 138)"/><rect x="352" y="291" width="19" height="38" rx="4" transform="rotate(-27 361 310)"/></g></svg><div class="watch-body">
+
+            <span class="bezel-label bezel-top">INSTINCT</span><span class="bezel-label bezel-bottom">GARMIN</span><span class="bezel-side side-left-top">CTRL</span><span class="bezel-side side-left-bottom">MENU</span><span class="bezel-side side-right-top">GPS</span><span class="bezel-side side-right-bottom">SET</span>
+            <div class="screw screw-a"></div><div class="screw screw-b"></div><div class="screw screw-c"></div><div class="screw screw-d"></div>
+            <div class="screen-frame"><svg id="face-canvas" role="group" tabindex="0" aria-label="Watch face design. Drag empty space to select multiple elements. Shift-click to add or remove elements. Arrow keys move the selection." xmlns="http://www.w3.org/2000/svg"></svg></div>
+          </div>
+        </div>
+        <div class="preview-caption"><span class="status-dot"></span><span id="preview-description">MONOCHROME DISPLAY</span><span class="caption-separator">/</span><span id="resolution-label"></span></div>
+        <p class="canvas-tip" id="canvas-tip">Select an element to make it yours. Drag to find its place.</p>
+        <div class="zoom-controls"><button id="zoom-out" aria-label="Zoom out">−</button><span id="zoom-label">100%</span><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-reset" title="Reset zoom" aria-label="Reset zoom">↺</button></div>
+      </div>
+      <footer class="canvas-footer"><span><span class="footer-key">↔</span><span id="element-count">0 elements</span><span id="selection-count" role="status" aria-live="polite">0 selected</span></span><span class="footer-hint">Arrow keys to nudge <span>·</span> Shift for 10px <span>·</span> Del to remove</span><button id="preview-data-button" class="text-button">Sample data <span>↗</span></button></footer>
+    </section>
+    <aside class="properties-panel" aria-label="Element properties"><div class="panel-heading"><span>PROPERTIES</span><span class="muted">⌘</span></div><div id="properties-content"></div><div class="layers-section"><div class="layers-heading"><span>LAYERS</span><span id="layers-count" class="count-badge"></span></div><div id="layers-list"></div><div class="layer-actions"><button class="icon-button" id="layer-up" aria-label="Move selected layer forward" title="Bring forward">↑</button><button class="icon-button" id="layer-down" aria-label="Move selected layer backward" title="Send backward">↓</button><button class="icon-button" id="duplicate-button" aria-label="Duplicate selected elements" title="Duplicate (Ctrl or Command D)">⧉</button><button class="icon-button delete-button" id="delete-button" aria-label="Delete selected unlocked elements" title="Delete">×</button></div></div><div class="compatibility-note"><span class="status-dot"></span> Connect IQ source ready<p id="geometry-note">Circle pixels match export. Main fonts vary by watch; verify in Garmin’s simulator.</p></div></aside>
+  </main>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <dialog id="app-dialog"><div id="dialog-content"></div></dialog>
+</body>
+</html>

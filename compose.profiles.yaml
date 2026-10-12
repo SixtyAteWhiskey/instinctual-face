@@ -1,0 +1,19 @@
+# Optional: connect only public device/font assets from the Docker host.
+# Do not mount the parent ConnectIQ directory, which may contain login data.
+services:
+  instinctual-face:
+    environment:
+      GARMIN_PROFILE_SOURCE: /garmin-import/Devices
+    volumes:
+      - type: bind
+        source: ${GARMIN_DEVICES_DIR:?Set GARMIN_DEVICES_DIR to SDK Manager's absolute Devices directory}
+        target: /garmin-import/Devices
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${GARMIN_FONTS_DIR:?Set GARMIN_FONTS_DIR to SDK Manager's absolute Fonts directory}
+        target: /garmin-import/Fonts
+        read_only: true
+        bind:
+          create_host_path: false

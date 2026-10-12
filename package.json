@@ -1,0 +1,21 @@
+{
+  "name": "instinctual-face",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A self-hosted drag-and-drop Garmin Instinct watch face designer",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs",
+    "setup:sdk": "node scripts/setup-garmin-sdk.mjs",
+    "setup:desktop": "node scripts/setup-desktop.mjs",
+    "setup:manager": "node scripts/setup-sdk-manager.mjs",
+    "test": "node --test tests/*.test.js",
+    "check": "node --check scripts/verify-runtime.mjs && node --check scripts/verify-docker.mjs && node --check server.mjs && node --check templates.mjs && node --check compiler.mjs && node --check scripts/setup-garmin-sdk.mjs && node --check scripts/setup-sdk-manager.mjs && node --check scripts/setup-desktop.mjs && node --check scripts/profile-import.mjs && node --check web/app.js && node --check web/workflows.js && node --check web/devices.js && node --check web/elements.js && node --check web/units.js && node --check web/graphics-elements.js && node --check web/model.js && node --check web/display-safety.js && node --check web/pixel-font.js && node --check web/selection.js && node --check web/preview.js && node --check web/garmin-metrics.js && node --check web/garmin-export.js && node --check web/sharing.js",
+    "verify:runtime": "node scripts/verify-runtime.mjs",
+    "verify:docker": "node scripts/verify-docker.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,14 @@
+services:
+  instinctual-face:
+    build: .
+    ports:
+      - "8080:3000"
+    environment:
+      PORT: "3000"
+      DATA_DIR: /app/data
+    volumes:
+      - instinctual-face-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  instinctual-face-data:
